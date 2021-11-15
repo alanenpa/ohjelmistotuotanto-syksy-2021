@@ -1,21 +1,6 @@
 from kauppa import Kauppa
-from kirjanpito import Kirjanpito
-# from varasto import Varasto
-# from pankki import Pankki
-# from viitegeneraattori import Viitegeneraattori
-
 
 def main():
-    # kauppa = Kauppa(
-    #     Varasto.get_instance(),
-    #     Pankki.get_instance(),
-    #     Viitegeneraattori.get_instance()
-    # )
-
-    # viitegeneraattori = Viitegeneraattori()
-    # varasto = Varasto(kirjanpito)
-    # pankki = Pankki(kirjanpito)
-    # kauppa = Kauppa(varasto, pankki, viitegeneraattori)
     kauppa = Kauppa()
 
     # kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
@@ -25,7 +10,6 @@ def main():
     kauppa.lisaa_koriin(3)
     kauppa.poista_korista(1)
     kauppa.tilimaksu("Pekka Mikkola", "1234-12345")
-    # kauppa._varasto._kirjanpito
 
     # seuraava asiakas
     kauppa.aloita_asiointi()
@@ -35,9 +19,6 @@ def main():
 
     kauppa.tilimaksu("Arto Vihavainen", "3425-1652")
 
-    # kirjanpito
-    # for tapahtuma in Kirjanpito.get_instance().tapahtumat:
-    #     print(tapahtuma)
     for tapahtuma in kauppa._varasto._kirjanpito.tapahtumat:
         print(tapahtuma)
 
