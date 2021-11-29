@@ -30,6 +30,8 @@ class Ostoskori:
         for o in self._ostokset:
             if o.tuotteen_nimi() == poistettava.nimi():
                 o.muuta_lukumaaraa(-1)
+                if o.lukumaara() == 0:
+                    self._ostokset.remove(o)
 
     def tyhjenna(self):
         pass
